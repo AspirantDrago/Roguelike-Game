@@ -1,16 +1,10 @@
-# This is a sample Python script.
+import pygame
+import src.game as game
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+SIZE = WIDTH, HEIGHT = 600, 400
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+pygame.init()
+screen = pygame.display.set_mode(SIZE)
+pygame.display.set_caption('Roguelike')
+game.main(screen)
+pygame.quit()
