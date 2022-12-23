@@ -30,3 +30,18 @@ def get_sub_sprite(
     x = left_offset + col * (width + horisontal_spacing)
     y = top_offset + row * (height + vertical_spacing)
     return sprite.subsurface((x, y, width, height))
+
+
+def load_map(filename):
+    fullname = os.path.join('data', 'maps', filename)
+    if not os.path.isfile(fullname):
+        print(f'Файл с картой {filename} отсутствует')
+        sys.exit()
+    level = ['']
+    with open(fullname) as f:
+        level = [s.rstrip('\n') for s in f.readlines()]
+    width = max(map(len, level))
+    level = [s.ljust(width, ' ') for s in level]
+    return level
+
+
